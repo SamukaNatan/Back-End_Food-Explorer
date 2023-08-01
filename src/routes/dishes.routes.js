@@ -5,7 +5,7 @@ const uploadConfig = require('../configs/upload');
 
 // Controllers Import and Initialization
 const ensureAuthenticated = require('../middlewares/ensureAuthenticated');
-const DishesController = require("../controllers/DishesController")
+const DishesController = require("../controllers/DishesControllers")
 
 const dishesController = new DishesController();
 
