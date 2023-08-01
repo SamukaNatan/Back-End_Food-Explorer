@@ -1,3 +1,4 @@
+// Knex, App Error, Compare, Token and AuthConfig Import
 const knex = require("../database/knex");
 
 const authConfig = require("../configs/auth");
