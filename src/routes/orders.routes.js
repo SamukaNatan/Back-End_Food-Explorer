@@ -2,7 +2,7 @@
 const { Router } = require('express');
 
 // Controllers Import and Initialization
-const OrdersController = require("../controllers/OrdersController")
+const OrdersController = require("../controllers/OrdersControllers")
 
 const ordersController = new OrdersController();
 
