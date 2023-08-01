@@ -8,7 +8,7 @@ const ordersController = new OrdersController();
 
 // Middleware Import
 const ensureAuthenticated = require("../middlewares/ensureAuthenticated");
-const ensureUserIsAdmin = require("../middlewares/ensureUserIsAdmin");
+const ensureUserIsAdmin = require("../middlewares/ensureUserInAdmin");
 
 // Initializing Router
 const ordersRoutes = Router();
