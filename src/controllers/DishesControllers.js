@@ -1,7 +1,8 @@
 // Knex, App Error and Disk Storage Import
 const knex = require("../database/knex");
 const AppError = require('../utils/AppError');
-const DiskStorage = require("../providers/DiskStorage")
+const DiskStorage = require("../providers/DiskStorage");
+const { TMP_FOLDER } = require("../configs/upload");
 
 class DishesController {
     async create(request, response) {
@@ -16,13 +17,13 @@ class DishesController {
         }
 
         // Requesting image filename
-        const { filename: imageFileName} = request.file;
+        const { imageFileName} = request.file.filename;
 
         // Instantiating diskStorage
         const diskStorage = new DiskStorage()
 
         // Saving image file
-        const filename = await diskStorage.saveFile(imageFileName);
+        const filename = await diskStorage.saveFile(imageFileName, TMP_FOLDER);
 
         // Inserting the infos into the database
         const dish_id = await knex("dishes").insert({
@@ -64,7 +65,7 @@ class DishesController {
         const { id } = request.params;
 
         // Requesting image filename
-        const { filename: imageFileName} = request.file;
+        const { imageFileName} = request.file.filename;
     
         // Instantiating diskStorage
         const diskStorage = new DiskStorage();
@@ -77,7 +78,7 @@ class DishesController {
           await diskStorage.deleteFile(dish.image);
         }
     
-        const filename = await diskStorage.saveFile(imageFileName);
+        const filename = await diskStorage.saveFile(imageFileName, TMP_FOLDER);
     
         // Verifications
         dish.image = image ?? filename;
