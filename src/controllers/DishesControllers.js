@@ -19,15 +19,13 @@ class DishesController {
         }
 
         // Requesting image filename
-        const { imageFileName} = request.file.filename;
-
-        file.filename = file.filename(file);
+        const imageFileName = request.file.filename;
 
         // Instantiating diskStorage
         const diskStorage = new DiskStorage()
 
         // Saving image file
-        const filename = await diskStorage.saveFile(imageFileName, TMP_FOLDER);
+        const filename = await diskStorage.saveFile(imageFileName);
 
         // Inserting the infos into the database
         const dish_id = await knex("dishes").insert({
@@ -69,7 +67,7 @@ class DishesController {
         const { id } = request.params;
 
         // Requesting image filename
-        const { imageFileName} = request.file.filename;
+        const imageFileName = request.file.filename;
     
         // Instantiating diskStorage
         const diskStorage = new DiskStorage();
@@ -82,7 +80,7 @@ class DishesController {
           await diskStorage.deleteFile(dish.image);
         }
     
-        const filename = await diskStorage.saveFile(imageFileName, TMP_FOLDER);
+        const filename = await diskStorage.saveFile(imageFileName);
     
         // Verifications
         dish.image = image ?? filename;
