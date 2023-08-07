@@ -17,7 +17,7 @@ class DishesController {
         }
 
         // Requesting image filename
-        const { imageFileName} = request.file.filename;
+        const { imageFileName} = request.file?.filename;
 
         // Instantiating diskStorage
         const diskStorage = new DiskStorage()
