@@ -8,7 +8,7 @@ const { TMP_FOLDER } = require("../configs/upload");
 class DishesController {
     async create(request, response) {
         // Capturing Body Parameters
-        const { title, description, category, price, ingredients } = request.body;
+        const { title, description, category, price, ingredients } = request.data;
 
         // Checking if dish already exists on the database
         const checkDishAlreadyExists = await knex("dishes").where({title}).first();
