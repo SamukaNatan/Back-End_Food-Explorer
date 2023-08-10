@@ -8,14 +8,19 @@ const { TMP_FOLDER } = require("../configs/upload");
 class DishesController {
     async create(request, response) {
         // Capturing Body Parameters
-        const { title, description, category, price, ingredients } = request.data;
+        // const { title, description, category, price, ingredients } = request.body.data;
+        const { title, description, category, price, ingredients } = JSON.parse(request.body.data);
+        const data = request.body.data;
+        console.log(request.body.data);
+
+        console.log(JSON.parse(data));
 
         // Checking if dish already exists on the database
-        const checkDishAlreadyExists = await knex("dishes").where({title}).first();
+        /*const checkDishAlreadyExists = await knex("dishes").where({title});
     
         if(checkDishAlreadyExists){
             throw new AppError("Este prato já existe no cardápio.")
-        }
+        }*/
 
         // Requesting image filename
         const imageFileName = request.file.filename;
@@ -37,14 +42,14 @@ class DishesController {
         });
 
         // Checking if dish has only one ingredient and inserting the infos into the database
-        const hasOnlyOneIngredient = typeof(ingredients) === "string";
+        const hasOnlyOneIngredient = ingredients.length === 1;
 
         let ingredientsInsert
 
         if (hasOnlyOneIngredient) {
             ingredientsInsert = {
-                name: ingredients,
-                dish_id
+                name: ingredients[0],
+                dish_id: dish_id[0]
             }
 
         } else if (ingredients.length > 1) {
@@ -55,7 +60,7 @@ class DishesController {
                 }
             });
         }
-
+        console.log(ingredientsInsert);
         await knex("ingredients").insert(ingredientsInsert);
 
         return response.status(201).json(); 
