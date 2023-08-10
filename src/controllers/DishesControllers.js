@@ -1,4 +1,3 @@
-
 // Knex, App Error and Disk Storage Import
 const knex = require("../database/knex");
 const AppError = require('../utils/AppError');
@@ -26,6 +25,7 @@ class DishesController {
 
         // Saving image file
         const filename = await diskStorage.saveFile(imageFileName);
+        
 
         // Inserting the infos into the database
         const dish_id = await knex("dishes").insert({
