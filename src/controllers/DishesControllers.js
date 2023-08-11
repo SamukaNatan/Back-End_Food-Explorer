@@ -9,11 +9,11 @@ class DishesController {
     async create(request, response) {
         // Capturing Body Parameters
         // const { title, description, category, price, ingredients } = request.body.data;
-        const { title, description, category, price, ingredients } = JSON.parse(request.body.data);
-        const data = request.body.data;
-        console.log(request.body.data);
+        const { title, description, category, price, ingredients } = JSON.parse(request.body.datas);
+        const data = request.body.datas;
+        console.log(request.body.datas);
 
-        console.log(JSON.parse(data));
+        console.log(JSON.parse(datas));
 
         // Checking if dish already exists on the database
         /*const checkDishAlreadyExists = await knex("dishes").where({title});
