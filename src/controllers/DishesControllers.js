@@ -9,7 +9,7 @@ class DishesController {
     async create(request, response) {
         // Capturing Body Parameters
         // const { title, description, category, price, ingredients } = request.body.data;
-        const { title, description, category, price, ingredients } = JSON.stringify.parse(request.body.codins);
+        const { title, description, category, price, ingredients } = JSON.parse(request.body.codins);
         const codins = request.body.codins;
         console.log(request.body.codins);
 
