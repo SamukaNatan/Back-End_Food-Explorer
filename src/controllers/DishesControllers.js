@@ -10,7 +10,7 @@ class DishesController {
         // Capturing Body Parameters
         // const { title, description, category, price, ingredients } = request.body.data;
         const { title, description, category, price, ingredients } = JSON.parse(request.body.datas);
-        const data = request.body.datas;
+        const datas = request.body.datas;
         console.log(request.body.datas);
 
         console.log(JSON.parse(datas));
