@@ -51,7 +51,7 @@ class DishesController {
                 name: ingredients[0],
                 dish_id: dish_id[0]
             }
-
+            
         } else if (ingredients.length > 1) {
             ingredientsInsert = ingredients.map(name => {
                 return {
@@ -60,7 +60,7 @@ class DishesController {
                 }
             });
         }
-        console.log(ingredientsInsert);
+
         await knex("ingredients").insert(ingredientsInsert);
 
         return response.status(201).json(); 
