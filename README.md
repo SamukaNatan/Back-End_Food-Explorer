@@ -124,7 +124,6 @@ Este projeto foi desenvolvido com as seguintes tecnologias:
 ## 💻 Sobre:
 
 O aplicativo que desenvolveremos é um cardápio digital para um restaurante fictício, conhecido como foodExplorer.
-Neste desafio foram abordados os seguintes temas:
 
 
 
