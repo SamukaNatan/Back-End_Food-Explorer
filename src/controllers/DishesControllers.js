@@ -9,11 +9,14 @@ class DishesController {
     async create(request, response) {
         // Capturing Body Parameters
         // const { title, description, category, price, ingredients } = request.body.data;
-        const { title, description, category, price, ingredients } = JSON.parse(request.body.codins);
-        const codins = request.body.codins;
-        console.log(request.body.codins);
+        // const { title, description, category, price, ingredients } = JSON.parse(request.body.codins);
+        // const codins = request.body.codins;
+        // console.log("request.body.codins" + request.body.codins);
 
-        console.log(JSON.parse(codins));
+        // console.log(JSON.parse(codins));
+        const { title, description, ingredients, category, price } = request.body;
+
+        const { filename: imageFilename } = request.file;
 
         // Checking if dish already exists on the database
         /*const checkDishAlreadyExists = await knex("dishes").where({title});
@@ -23,13 +26,13 @@ class DishesController {
         }*/
 
         // Requesting image filename
-        const imageFileName = request.file.filename;
+        //const imageFileName = request.file.filename;
 
         // Instantiating diskStorage
         const diskStorage = new DiskStorage()
 
         // Saving image file
-        const filename = await diskStorage.saveFile(imageFileName);
+        const filename = await diskStorage.saveFile(imageFilename);
         
 
         // Inserting the infos into the database
