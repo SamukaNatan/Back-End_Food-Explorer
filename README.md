@@ -92,10 +92,10 @@ $ password: 112233
 ```bash
 
 # Clone este repositório
-$ https://github.com/SamukaNatan/Back-End_Food-Explorer
+$ https://github.com/SamukaNatan/Front-End_Food-Explorer
 
 # Acesse a pasta do projeto no terminal/cmd
-$ cd + sua pasta + git clone https://github.com/SamukaNatan/Back-End_Food-Explorer
+$ cd + sua pasta + git clone https://github.com/SamukaNatan/Front-End_Food-Explorer
 
 
 # Instale as dependências com:
@@ -130,6 +130,6 @@ Neste desafio foram abordados os seguintes temas:
 
 ---
 ## Deploy do projeto.
-https://food-explorer-lidiane-diniz.netlify.app/
+https://64dbe45d5541aa34497b2216--celadon-kulfi-d38970.netlify.app/
 
 ---
